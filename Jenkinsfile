@@ -11,10 +11,21 @@ pipeline {
   }
   //Aquí comienzan los “items” del Pipeline 
   stages{   
-  stage('Checkout') {  
-  steps{        echo "------------>Checkout<------------"      
-  }    
-  }    
+stage('Checkout'){
+steps{
+echo "------------>Checkout<------------"
+checkout(
+[
+$class: 'GitSCM', branches: [[name: '*/master']],
+doGenerateSubmoduleConfigurations: false,
+ extensions: [],
+ gitTool:'Git_Centos', submoduleCfg: [],
+ userRemoteConfigs: [[credentialsId:'GitHub_manu9010',
+ url:'https://github.com/manu9010/ceiba-estacionamiento']]
+ ]
+ )
+ }
+ }
   stage('Unit Tests') {
   
   steps{  
