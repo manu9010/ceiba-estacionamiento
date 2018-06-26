@@ -35,6 +35,7 @@ doGenerateSubmoduleConfigurations: false,
   
   steps{  
   echo "------------>Unit Tests<------------"     
+  sh 'gradle --b ./build.gradle test'
   }   
   }    
   stage('Integration Tests') {      
@@ -50,7 +51,9 @@ doGenerateSubmoduleConfigurations: false,
  }    
  
  stage('Build') {     
- steps {        echo "------------>Build<------------"    
+ steps {        
+ echo "------------>Build<------------"
+ sh 'gradle --b ./proyecto1/build.gradle compileJava' 
  }   
  } 
  } 
