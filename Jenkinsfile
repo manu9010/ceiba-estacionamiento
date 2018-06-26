@@ -41,6 +41,7 @@ doGenerateSubmoduleConfigurations: false,
   stage('Integration Tests') {      
   steps {      
   echo "------------>Integration Tests<------------"      
+  sh 'gradle --b ./build.gradle integTest'
   }  
   }    
   stage('Static Code Analysis') {   
