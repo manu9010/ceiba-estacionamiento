@@ -35,13 +35,13 @@ doGenerateSubmoduleConfigurations: false,
   
   steps{  
   echo "------------>Unit Tests<------------"     
-  sh 'gradle --b ./build.gradle test'
+  sh './gradlew test'
   }   
   }    
   stage('Integration Tests') {      
   steps {      
   echo "------------>Integration Tests<------------"      
-  sh 'gradle --b ./build.gradle integTest'
+  sh './gradlew integTest'
   }  
   }    
   stage('Static Code Analysis') {   
