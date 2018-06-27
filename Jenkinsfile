@@ -41,12 +41,15 @@ doGenerateSubmoduleConfigurations: false,
   stage('Integration Tests') {      
   steps {      
   echo "------------>Integration Tests<------------"      
- sh './gradlew integTest' 
+ sh './gradlew integrationTest' 
   }  
   }    
   stage('Static Code Analysis') {   
   steps{     
-  echo '------------>Análisis de código estático<------------'     
+echo '------------>Análisis de código estático<------------'
+ withSonarQubeEnv(​'Sonar'​) { 
+ sh "${tool name: '​SonarScanner​' , 2 type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner" 
+ }
 
  }  
  }    

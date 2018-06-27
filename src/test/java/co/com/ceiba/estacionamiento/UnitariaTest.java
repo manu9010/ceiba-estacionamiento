@@ -1,7 +1,6 @@
-package co.com.unitaria;
+package co.com.ceiba.estacionamiento;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
