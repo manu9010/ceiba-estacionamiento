@@ -35,13 +35,13 @@ doGenerateSubmoduleConfigurations: false,
   
   steps{  
   echo "------------>Unit Tests<------------"     
- sh 'gradle build --info'
+ sh './gradlew -version'
   }   
   }    
   stage('Integration Tests') {      
   steps {      
   echo "------------>Integration Tests<------------"      
- sh 'gradle build --info'
+ sh './gradlew -version'
   }  
   }    
   stage('Static Code Analysis') {   
@@ -54,7 +54,7 @@ doGenerateSubmoduleConfigurations: false,
  stage('Build') {     
  steps {        
  echo "------------>Build<------------"
- sh 'gradle build --info'
+ sh './gradlew -version'
  }   
  } 
  } 
