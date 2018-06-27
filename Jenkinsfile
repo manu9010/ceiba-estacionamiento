@@ -41,7 +41,7 @@ doGenerateSubmoduleConfigurations: false,
   stage('Integration Tests') {      
   steps {      
   echo "------------>Integration Tests<------------"      
- sh './gradlew integrationTest' 
+ sh './gradlew -version'
   }  
   }    
   stage('Static Code Analysis') {   
