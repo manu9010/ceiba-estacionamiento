@@ -19,7 +19,6 @@ pipeline {
 stage('Checkout'){
 steps{
 echo "------------>Checkout<------------"
- ls
 checkout(
 [
 $class: 'GitSCM', branches: [[name: '*/master']],
@@ -35,15 +34,14 @@ doGenerateSubmoduleConfigurations: false,
   stage('Unit Tests') {
   
   steps{  
-  echo "------------>Unit Tests<------------"    
-  ls  
-sh '​gradle --b ./build.gradle test​' 
+  echo "------------>Unit Tests<------------"     
+ sh 'gradle build --info'
   }   
   }    
   stage('Integration Tests') {      
   steps {      
   echo "------------>Integration Tests<------------"      
-  sh './gradlew integTest'
+ sh 'gradle build --info'
   }  
   }    
   stage('Static Code Analysis') {   
@@ -56,7 +54,7 @@ sh '​gradle --b ./build.gradle test​'
  stage('Build') {     
  steps {        
  echo "------------>Build<------------"
- //sh 'gradle --b ./proyecto1/build.gradle compileJava' 
+ sh 'gradle build --info'
  }   
  } 
  } 
