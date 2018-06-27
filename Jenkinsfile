@@ -47,7 +47,7 @@ doGenerateSubmoduleConfigurations: false,
   stage('Static Code Analysis') {   
   steps{     
 echo '------------>Análisis de código estático<------------'
- withSonarQubeEnv(​'SonarQube'​) { 
+ withSonarQubeEnv(​'Sonar'​) { 
 
 echo '------------>Análisis de código estático adentro<------------'
  }
