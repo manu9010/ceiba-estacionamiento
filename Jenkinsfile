@@ -35,7 +35,7 @@ doGenerateSubmoduleConfigurations: false,
   
   steps{  
   echo "------------>Unit Tests<------------"    
-sh '​ls'   
+  ls  
 sh '​gradle --b ./build.gradle test​' 
   }   
   }    
