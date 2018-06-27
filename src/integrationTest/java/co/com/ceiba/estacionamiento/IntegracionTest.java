@@ -11,7 +11,7 @@ public class IntegracionTest {
 	@Test
 	public void test() {
 		//fail("Not yet implemented");
-		assertFalse(false);		
+		assertFalse(true);		
 	}
 
 }
