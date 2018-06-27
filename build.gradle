@@ -7,6 +7,7 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+       classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
 	}
 }
 
@@ -14,6 +15,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.sonarqube'
 
 group = 'co.com.ceiba'
 version = '0.0.1-SNAPSHOT'
@@ -31,6 +33,7 @@ dependencies {
 	  compile 'com.h2database:h2:1.4.194'	
 	  compile 'org.hibernate:hibernate-core:5.2.9.Final'	
 	  compile 'junit:junit:4.12'
+
 	      
 	  testCompile 'junit:junit:4.12'
 	  testCompile 'org.mockito:mockito-all:1.10.19'
@@ -68,5 +71,16 @@ sourceSets {
     // So that Gradle knows which runtime class path to use:
     classpath = sourceSets.integrationTest.runtimeClasspath
  
+}
+
+
+sonarqube {
+properties {
+property "sonar.host.url", "https://sonar.ceiba.com.co" //  url is your sonar server
+property "sonar.projectName", "Estacionamiento"   //  this name will appear in dashboard
+property "sonar.login", "manuel.cantillo"   //  this name will appear in dashboard
+property "sonar.password", "19920910$P"   //  this name will appear in dashboard
+property "sonar.projectKey", "co.com.ceiba.estacionamiento.manuel.cantillo" // It sould be a keybased on this report is created
+property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    }
 }
 

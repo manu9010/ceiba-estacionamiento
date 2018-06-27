@@ -47,10 +47,9 @@ doGenerateSubmoduleConfigurations: false,
   stage('Static Code Analysis') {   
   steps{     
 echo '------------>Análisis de código estático<------------'
- withSonarQubeEnv(​'SonarQube server 7.1.0'​) { 
+ withSonarQubeEnv(​'SonarQube'​) { 
 
- sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties" 
-
+echo '------------>Análisis de código estático adentro<------------'
  }
 
  }  
