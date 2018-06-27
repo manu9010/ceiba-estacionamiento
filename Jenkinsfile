@@ -19,6 +19,7 @@ pipeline {
 stage('Checkout'){
 steps{
 echo "------------>Checkout<------------"
+ ls
 checkout(
 [
 $class: 'GitSCM', branches: [[name: '*/master']],
