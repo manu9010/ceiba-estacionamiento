@@ -47,7 +47,7 @@ doGenerateSubmoduleConfigurations: false,
   stage('Static Code Analysis') {   
   steps{     
 echo '------------>Análisis de código estático<------------'
- withSonarQubeEnv(​'Sonar'​) { 
+ withSonarQubeEnv(​'SonarScanner'​) { 
 
  sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties" 
 
@@ -59,7 +59,6 @@ echo '------------>Análisis de código estático<------------'
  stage('Build') {     
  steps {        
  echo "------------>Build<------------"
- sh './gradlew -version'
  }   
  } 
  } 
