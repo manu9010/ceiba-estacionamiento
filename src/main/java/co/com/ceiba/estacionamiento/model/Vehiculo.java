@@ -2,15 +2,26 @@ package co.com.ceiba.estacionamiento.model;
 
 public class Vehiculo {
 	
-	String placa;
-	int cilindraje;
-	
+	private String placa;
+	private int cilindraje;
+    private TipoVehiculo tipoVehiculo;
 	
 
-	public Vehiculo(String placa, int cilindraje) {
+	public Vehiculo(String placa, int cilindraje, TipoVehiculo tipoVehiculo) {
 		this.placa = placa;
 		this.cilindraje = cilindraje;
+		this.tipoVehiculo = tipoVehiculo;
 	}
+	
+	public TipoVehiculo getTipoVehiculo() {
+		return tipoVehiculo;
+	}
+
+	public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+		this.tipoVehiculo = tipoVehiculo;
+	}
+
+
 
 	public int getCilindraje() {
 		return cilindraje;

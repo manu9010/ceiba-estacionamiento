@@ -3,16 +3,17 @@ package co.com.ceiba.estacionamiento.model;
 public class Tarifa {
 	
 	double precio;
-	String temporalidad;
+	int temporalidadHoras;
 	TipoVehiculo tipoVehiculo;
 	
 	
 	
-	public Tarifa(double precio, String temporalidad, TipoVehiculo tipoVehiculo) {
+	public Tarifa(double precio, int temporalidad, TipoVehiculo tipoVehiculo) {
 		this.precio = precio;
-		this.temporalidad = temporalidad;
+		this.temporalidadHoras = temporalidad;
 		this.tipoVehiculo = tipoVehiculo;
 	}
+	
 	
 	
 	public double getPrecio() {
@@ -21,11 +22,11 @@ public class Tarifa {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-	public String getTemporalidad() {
-		return temporalidad;
+	public int getTemporalidad() {
+		return temporalidadHoras;
 	}
-	public void setTemporalidad(String temporalidad) {
-		this.temporalidad = temporalidad;
+	public void setTemporalidad(int temporalidad) {
+		this.temporalidadHoras = temporalidad;
 	}
 	public TipoVehiculo getTipoVehiculo() {
 		return tipoVehiculo;
