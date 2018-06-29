@@ -1,6 +1,7 @@
 package co.com.ceiba.estacionamiento.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Cobro {
 	
@@ -9,5 +10,8 @@ public class Cobro {
 	 Date fechaEntrada;
 	 Date fechaSalida;
 	 Vehiculo vehiculo;
+	 List<Tarifa> tarifas;
+	 
+	 
 	
 }
