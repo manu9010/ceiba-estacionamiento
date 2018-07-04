@@ -3,6 +3,7 @@ package co.com.ceiba.estacionamiento.model;
 import java.util.Date;
 import java.util.List;
 
+
 public class Cobro {
 	
 	 private double total;
@@ -10,17 +11,19 @@ public class Cobro {
 	 private Date fechaEntrada;
 	 private Date fechaSalida;
 	 private Vehiculo vehiculo;
-	 private List<Tarifa> tarifas;
+	 private List<CobroTarifa> cobroTarifa;
 	 
 	 
+
 	public Cobro(double total, String estado, Date fechaEntrada, Date fechaSalida, Vehiculo vehiculo,
-			List<Tarifa> tarifas) {
+			List<CobroTarifa> cobroTarifa) {
+		super();
 		this.total = total;
 		this.estado = estado;
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.vehiculo = vehiculo;
-		this.tarifas = tarifas;
+		this.cobroTarifa = cobroTarifa;
 	}
 
 
@@ -74,18 +77,16 @@ public class Cobro {
 	}
 
 
-	public List<Tarifa> getTarifas() {
-		return tarifas;
+	public List<CobroTarifa> getCobroTarifa() {
+		return cobroTarifa;
 	}
 
 
-	public void setTarifas(List<Tarifa> tarifas) {
-		this.tarifas = tarifas;
+	public void setCobroTarifa(List<CobroTarifa> cobroTarifa) {
+		this.cobroTarifa = cobroTarifa;
 	}
-	
-	
-	 
-	 
+
+
 	 
 	
 }

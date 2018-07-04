@@ -2,9 +2,9 @@ package co.com.ceiba.estacionamiento.model;
 
 public class Tarifa {
 	
-	double precio;
-	int temporalidadHoras;
-	TipoVehiculo tipoVehiculo;
+	private double precio;
+	private int temporalidadHoras;
+	private TipoVehiculo tipoVehiculo;
 	
 	
 	
