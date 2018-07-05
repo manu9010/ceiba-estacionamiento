@@ -44,7 +44,10 @@ public class TarifaBuilder {
 		}
 		
 
-
+		 public static TarifaBuilder unaTarifa(){
+		        return new TarifaBuilder();
+		    }
+		
 	
 	public Tarifa build() {
 		return new Tarifa(this.precio, this.temporalidadHoras, this.tipoVehiculo);
