@@ -10,7 +10,7 @@ import org.junit.Test;
 import co.com.ceiba.estacionamiento.model.TipoVehiculo;
 import co.com.ceiba.estacionamiento.model.Vehiculo;
 import co.com.ceiba.estacionamiento.util.Constantes;
-import co.com.ceiba.estacionamiento.util.ValidadorVehiculo;
+import co.com.ceiba.estacionamiento.util.ValidadorVehiculoPlacaIniciaA;
 import testdatabuilder.VehiculoBuilder;
 
 public class VehiculoTest {
@@ -30,9 +30,11 @@ public class VehiculoTest {
 				conPlaca(PLACA).
 				conCilindraje(CILINDRAJE).
 				conTipoVehiculo(tipoVehiculo);
+		
+		Vehiculo vehiculo = vehiculoBuilder.build();
 
 		// act
-		Vehiculo vehiculo = vehiculoBuilder.build();
+	
 
 		// assert
 		assertEquals(PLACA, vehiculo.getPlaca());
@@ -65,7 +67,7 @@ public class VehiculoTest {
 	public void ingresarVehiculoEmpieceConA() {
 		
 		// arrange
-		ValidadorVehiculo validadorVehiculo= new ValidadorVehiculo();
+		ValidadorVehiculoPlacaIniciaA validadorVehiculo= new ValidadorVehiculoPlacaIniciaA();
 		
 		TipoVehiculo  tipoVehiculo= new TipoVehiculo(Constantes.TIPO_VEHICULO_MOTO);
 		VehiculoBuilder vehiculoBuilder = new VehiculoBuilder().
@@ -89,7 +91,7 @@ public class VehiculoTest {
 	public void ingresarVehiculoNoEmpieceConA() {
 		
 		// arrange
-		ValidadorVehiculo validadorVehiculo= new ValidadorVehiculo();
+		ValidadorVehiculoPlacaIniciaA validadorVehiculo= new ValidadorVehiculoPlacaIniciaA();
 		
 		TipoVehiculo  tipoVehiculo= new TipoVehiculo(Constantes.TIPO_VEHICULO_MOTO);
 		VehiculoBuilder vehiculoBuilder = new VehiculoBuilder().
