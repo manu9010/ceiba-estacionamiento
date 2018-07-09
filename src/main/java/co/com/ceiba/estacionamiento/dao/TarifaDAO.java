@@ -7,8 +7,10 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import co.com.ceiba.estacionamiento.entities.TipoVehiculoEntity;
+import co.com.ceiba.estacionamiento.entities.TarifaEntity;
 import co.com.ceiba.estacionamiento.model.Tarifa;
+import co.com.ceiba.estacionamiento.testdatabuilder.TarifaBuilder;
+
 
 
 @Repository
@@ -21,12 +23,25 @@ public class TarifaDAO implements ITarifaDAO {
 	ITipoVehiculoDAO tipoVehiculoDao;
 
 	@Override
-	public Tarifa obtenerTarifaPorTemporalidadHoras(int horasParqueo, String tipoVehiculo) {
+	public Tarifa obtenerTarifaPorTemporalidadHoras(int temporalidadHoras, String tipoVehiculo) {
 	
-		Query query = em.createNamedQuery("SELECT tipoVehiculo FROM TipoVehiculo tipoVehiculo WHERE tipoVehiculo.descripcion = :descripcion");
-		//query.setParameter("decscripcion", descripcion);
+		Query query = em.createQuery("SELECT tarifa FROM Tarifa tarifa WHERE tarifa.temporalidadHoras=:temporalidadHoras AND tarifa.tipoVehiculo.descripcion=:tipoVehiculo");
+		query.setParameter("temporalidadHoras", temporalidadHoras);
+		query.setParameter("tipoVehiculo", tipoVehiculo);
 
-		return null;
+		TarifaEntity tarifaEntity= (TarifaEntity) query.getSingleResult();
+		return TarifaBuilder.convertirADominio(tarifaEntity);
+	}
+	
+	@Override
+	public TarifaEntity obtenerTarifaEntityPorTemporalidadHoras(int temporalidadHoras, String tipoVehiculo) {
+	
+		Query query = em.createQuery("SELECT tarifa FROM Tarifa tarifa WHERE tarifa.temporalidadHoras=:temporalidadHoras AND tarifa.tipoVehiculo.descripcion=:tipoVehiculo");
+		query.setParameter("temporalidadHoras", temporalidadHoras);
+		query.setParameter("tipoVehiculo", tipoVehiculo);
+
+
+		return (TarifaEntity) query.getSingleResult();
 	}
 
 }

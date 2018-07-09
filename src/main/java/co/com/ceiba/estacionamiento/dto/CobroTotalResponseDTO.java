@@ -10,6 +10,22 @@ public class CobroTotalResponseDTO {
 		this.mensaje = mensaje;
 	}
 
+	public double getCobroTotal() {
+		return cobroTotal;
+	}
+
+	public void setCobroTotal(double cobroTotal) {
+		this.cobroTotal = cobroTotal;
+	}
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+
 
 	
 	

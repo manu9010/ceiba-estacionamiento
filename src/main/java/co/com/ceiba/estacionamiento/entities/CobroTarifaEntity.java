@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 
 @Entity(name = "CobroTarifa")
@@ -15,10 +17,13 @@ public class CobroTarifaEntity {
 	private Long id;
 	
 	
-	@Column(nullable = false)
+	@OneToOne
+	@JoinColumn(name="ID_COBRO") 
 	private CobroEntity cobro;
 	
-	@Column(nullable = false)
+
+	@OneToOne
+	@JoinColumn(name="ID_TARIFA",nullable = false) 
 	private TarifaEntity tarifa;
 	
 	@Column(nullable = false)
@@ -30,6 +35,10 @@ public class CobroTarifaEntity {
 		this.cobro = cobro;
 		this.tarifa = tarifa;
 		this.cantidadTarifa = cantidadTarifa;
+	}
+
+	public CobroTarifaEntity() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {

@@ -16,6 +16,12 @@ public class Tarifa {
 	
 	
 	
+	public Tarifa() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public double getPrecio() {
 		return precio;
 	}

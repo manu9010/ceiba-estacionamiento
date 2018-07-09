@@ -17,30 +17,25 @@ import co.com.ceiba.estacionamiento.service.IVehiculoService;
 @RequestMapping("/api/1.0/vehiculo")
 @CrossOrigin
 public class VehiculoController {
-	
-	
+
 	@Autowired
 	IVehiculoService VehiculoService;
-	
-	
 
-
-	@RequestMapping(value="/{placa}", method=RequestMethod.GET, produces="application/json" )
+	@RequestMapping(value = "/{placa}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<VehiculoResponseDTO> obtenerVehiculo(@PathVariable String placa) {
 		try {
-			Vehiculo vehiculo=VehiculoService.consultarVechiculoPorPlaca(placa);
-			if (vehiculo!=null) {
-				return new ResponseEntity<>(new VehiculoResponseDTO(vehiculo,"",0), null, HttpStatus.OK);
+			Vehiculo vehiculo = VehiculoService.consultarVechiculoPorPlaca(placa);
+			if (vehiculo != null) {
+				return new ResponseEntity<>(new VehiculoResponseDTO(vehiculo, "", 0), null, HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>(new VehiculoResponseDTO(null,"",0), null, HttpStatus.NO_CONTENT);
+				return new ResponseEntity<>(new VehiculoResponseDTO(null, "", 0), null, HttpStatus.NO_CONTENT);
 			}
-			
-		} catch (Exception e) {
-			 return new ResponseEntity<>(new VehiculoResponseDTO(null,e.getMessage(),0), null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	
-	}
-	
 
+		} catch (Exception e) {
+			return new ResponseEntity<>(new VehiculoResponseDTO(null, e.getMessage(), 0), null,
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
 
 }

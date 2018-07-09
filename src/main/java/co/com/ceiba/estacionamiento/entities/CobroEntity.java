@@ -8,9 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
-import co.com.ceiba.estacionamiento.model.Vehiculo;
+import javax.persistence.OneToOne;
 
 @Entity(name = "Cobro")
 public class CobroEntity {
@@ -31,8 +31,9 @@ public class CobroEntity {
 	@Column(nullable = true)
 	 private Date fechaSalida;
 	
-	@Column(nullable = false)
-	 private Vehiculo vehiculo;
+	 @OneToOne
+	 @JoinColumn(name="ID_VEHICULO",nullable = false) 
+	 private VehiculoEntity vehiculo;
 	
 	 @Column(nullable = true)
 	 @OneToMany( targetEntity=CobroTarifaEntity.class )
@@ -40,7 +41,7 @@ public class CobroEntity {
 	 
 	 
 
-	public CobroEntity(Long id, Double total, String estado, Date fechaEntrada, Date fechaSalida, Vehiculo vehiculo,
+	public CobroEntity(Long id, Double total, String estado, Date fechaEntrada, Date fechaSalida, VehiculoEntity vehiculo,
 			List<CobroTarifaEntity> cobroTarifas) {
 		this.id = id;
 		this.total = total;
@@ -49,6 +50,12 @@ public class CobroEntity {
 		this.fechaSalida = fechaSalida;
 		this.vehiculo = vehiculo;
 		this.cobroTarifas = cobroTarifas;
+	}
+
+
+
+	public CobroEntity() {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -93,11 +100,11 @@ public class CobroEntity {
 		this.fechaSalida = fechaSalida;
 	}
 
-	public Vehiculo getVehiculo() {
+	public VehiculoEntity getVehiculo() {
 		return vehiculo;
 	}
 
-	public void setVehiculo(Vehiculo vehiculo) {
+	public void setVehiculo(VehiculoEntity vehiculo) {
 		this.vehiculo = vehiculo;
 	}
 

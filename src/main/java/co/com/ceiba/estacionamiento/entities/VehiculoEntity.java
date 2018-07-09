@@ -3,6 +3,7 @@ package co.com.ceiba.estacionamiento.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity(name = "Vehiculo")
@@ -14,9 +15,8 @@ public class VehiculoEntity {
 	@Column(nullable = false)
 	private Integer cilindraje;
 	
-	@Column(nullable = false)
 	@OneToOne
-	//@JoinColumn(name="ID_TIPO_VEHICULO",referencedColumnName="id")
+	@JoinColumn(name="ID_TIPO_VEHICULO",nullable = false) 
     private TipoVehiculoEntity tipoVehiculo;
 
 	public VehiculoEntity(String placa, Integer cilindraje, TipoVehiculoEntity tipoVehiculo) {

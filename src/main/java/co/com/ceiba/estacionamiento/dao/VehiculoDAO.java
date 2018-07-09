@@ -13,7 +13,8 @@ import org.springframework.stereotype.Repository;
 import co.com.ceiba.estacionamiento.entities.TipoVehiculoEntity;
 import co.com.ceiba.estacionamiento.entities.VehiculoEntity;
 import co.com.ceiba.estacionamiento.model.Vehiculo;
-import testdatabuilder.VehiculoBuilder;
+import co.com.ceiba.estacionamiento.testdatabuilder.VehiculoBuilder;
+
 
 
 @Repository
@@ -25,11 +26,20 @@ public class VehiculoDAO implements IVehiculoDAO {
 	@Autowired
 	ITipoVehiculoDAO tipoVehiculoDao;
 
+	@Transactional
 	@Override
 	public Vehiculo buscarVehiculoPorPlaca(String placa) {
 		
 		VehiculoEntity vehiculoEntity=em.find(VehiculoEntity.class, placa);
 	    return VehiculoBuilder.convertirADominio(vehiculoEntity);
+	}
+	
+	@Transactional
+	@Override
+	public VehiculoEntity buscarVehiculoEntityPorPlaca(String placa) {
+		
+		
+	    return em.find(VehiculoEntity.class, placa);
 	}
 
 	@Override

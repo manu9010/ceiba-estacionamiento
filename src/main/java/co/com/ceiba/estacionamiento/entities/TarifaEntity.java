@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 
 @Entity(name = "Tarifa")
@@ -22,16 +22,15 @@ public class TarifaEntity {
 	@Column(nullable = false)
 	private Integer temporalidadHoras;
 	
-	@Column(nullable = false)
-	@ManyToOne
-	@JoinColumn(name="ID_TIPO_VEHICULO",referencedColumnName="id")
-	private TipoVehiculoEntity tipoVehiculoEntity;
+	@OneToOne
+	@JoinColumn(name="ID_TIPO_VEHICULO",nullable = false) 
+	private TipoVehiculoEntity tipoVehiculo;
 
 	public TarifaEntity(Long id, Double precio, Integer temporalidadHoras, TipoVehiculoEntity tipoVehiculo) {
 		this.id = id;
 		this.precio = precio;
 		this.temporalidadHoras = temporalidadHoras;
-		this.tipoVehiculoEntity = tipoVehiculo;
+		this.tipoVehiculo = tipoVehiculo;
 	}
 
 	public Long getId() {
@@ -59,11 +58,11 @@ public class TarifaEntity {
 	}
 
 	public TipoVehiculoEntity getTipoVehiculo() {
-		return tipoVehiculoEntity;
+		return tipoVehiculo;
 	}
 
 	public void setTipoVehiculo(TipoVehiculoEntity tipoVehiculo) {
-		this.tipoVehiculoEntity = tipoVehiculo;
+		this.tipoVehiculo = tipoVehiculo;
 	}
 	
 	

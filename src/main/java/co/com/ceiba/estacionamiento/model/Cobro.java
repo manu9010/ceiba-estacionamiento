@@ -27,6 +27,11 @@ public class Cobro {
 	}
 
 
+	public Cobro() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public double getTotal() {
 		return total;
 	}

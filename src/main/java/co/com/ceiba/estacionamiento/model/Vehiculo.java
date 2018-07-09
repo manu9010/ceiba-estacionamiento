@@ -35,6 +35,10 @@ public class Vehiculo {
 		this.placa = placa;
 	}
 
+	public Vehiculo() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getPlaca() {
 		return placa;
 	}

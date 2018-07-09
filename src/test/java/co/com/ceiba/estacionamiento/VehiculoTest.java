@@ -1,8 +1,5 @@
 package co.com.ceiba.estacionamiento;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.when;
 
@@ -19,9 +16,9 @@ import co.com.ceiba.estacionamiento.model.TipoVehiculo;
 import co.com.ceiba.estacionamiento.model.Vehiculo;
 import co.com.ceiba.estacionamiento.service.IVehiculoService;
 import co.com.ceiba.estacionamiento.service.VehiculoService;
+import co.com.ceiba.estacionamiento.testdatabuilder.VehiculoBuilder;
 import co.com.ceiba.estacionamiento.util.Constantes;
-import co.com.ceiba.estacionamiento.util.ValidadorVehiculoPlacaIniciaA;
-import testdatabuilder.VehiculoBuilder;
+
 
 public class VehiculoTest {
 	

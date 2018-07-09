@@ -16,6 +16,12 @@ public class CobroTarifa {
 
 
 
+	public CobroTarifa() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public Cobro getCobro() {
 		return cobro;
 	}

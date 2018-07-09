@@ -18,9 +18,11 @@ import co.com.ceiba.estacionamiento.model.Tarifa;
 import co.com.ceiba.estacionamiento.model.TipoVehiculo;
 import co.com.ceiba.estacionamiento.model.Vehiculo;
 import co.com.ceiba.estacionamiento.service.CobroService;
+import co.com.ceiba.estacionamiento.testdatabuilder.CobroBuilder;
+import co.com.ceiba.estacionamiento.testdatabuilder.FechaBuilder;
 import co.com.ceiba.estacionamiento.util.Constantes;
-import testdatabuilder.CobroBuilder;
-import testdatabuilder.FechaBuilder;
+
+
 import testdatabuilder.TarifaBuilder;
 import testdatabuilder.VehiculoBuilder;
 

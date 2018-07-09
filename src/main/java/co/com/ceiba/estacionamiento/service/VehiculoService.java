@@ -12,27 +12,22 @@ import co.com.ceiba.estacionamiento.model.Vehiculo;
 import co.com.ceiba.estacionamiento.util.IValidadorVehiculo;
 import co.com.ceiba.estacionamiento.util.ValidadorVehiculoPlacaIniciaA;
 
-
 @Service
 public class VehiculoService implements IVehiculoService {
-	
+
 	@Autowired
 	private IVehiculoDAO vehiculoDao;
-	
+
 	
 
 	public VehiculoService(IVehiculoDAO vehiculoDao) {
 		this.vehiculoDao = vehiculoDao;
 	}
 
-
-
-
 	@Override
 	public void registrarVechiculo(Vehiculo vehiculo) throws VehiculoException {
-		
-		
-     	 List<IValidadorVehiculo> validacionesVehiculo = new ArrayList<>();
+
+		List<IValidadorVehiculo> validacionesVehiculo = new ArrayList<>();
 		 validacionesVehiculo.add(new ValidadorVehiculoPlacaIniciaA());
 		 
 
@@ -42,20 +37,14 @@ public class VehiculoService implements IVehiculoService {
 		 
 		 
 		 vehiculoDao.registrarVehiculo(vehiculo);
-		 
-		
+
 	}
-
-
 
 	@Override
 	public Vehiculo consultarVechiculoPorPlaca(String placa) {
-	
-	  return vehiculoDao.buscarVehiculoPorPlaca(placa);
+
+		return vehiculoDao.buscarVehiculoPorPlaca(placa);
 	}
-
-
-
 
 	@Override
 	public List<Vehiculo> obtenerTodosLosVehiculos() {

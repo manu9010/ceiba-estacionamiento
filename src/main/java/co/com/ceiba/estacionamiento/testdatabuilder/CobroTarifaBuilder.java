@@ -1,4 +1,4 @@
-package testdatabuilder;
+package co.com.ceiba.estacionamiento.testdatabuilder;
 
 import co.com.ceiba.estacionamiento.model.Cobro;
 import co.com.ceiba.estacionamiento.model.CobroTarifa;
@@ -58,7 +58,8 @@ public class CobroTarifaBuilder {
         return new CobroTarifaBuilder();
     }
 	 
-	 
+	
+	
     
     
     

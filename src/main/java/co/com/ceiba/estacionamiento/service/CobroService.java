@@ -11,10 +11,11 @@ import co.com.ceiba.estacionamiento.dao.ITarifaDAO;
 import co.com.ceiba.estacionamiento.model.Cobro;
 import co.com.ceiba.estacionamiento.model.CobroTarifa;
 import co.com.ceiba.estacionamiento.model.Tarifa;
+import co.com.ceiba.estacionamiento.testdatabuilder.CobroTarifaBuilder;
 import co.com.ceiba.estacionamiento.util.Constantes;
 import co.com.ceiba.estacionamiento.util.FechaDiasHoras;
 import co.com.ceiba.estacionamiento.util.FechaUtil;
-import testdatabuilder.CobroTarifaBuilder;
+
 
 
 
@@ -139,8 +140,23 @@ public class CobroService implements ICobroService {
 	@Override
 	public Cobro obtenerCobroVehiculoPendiente(String placa) {
 		// TODO Auto-generated method stub
-		return null;
+		return cobroDao.obtenerCobroVehiculoPendiente(placa);
 	}
+	
+	
+	@Override
+	public List<Cobro> obtenerCobrosVehiculosPendiente() {
+		// TODO Auto-generated method stub
+		return cobroDao.obtenerCobrosVehiculoPorEstado(Constantes.ESTADO_COBRO_PENDIENTE);
+	}
+	
+	
+	@Override
+	public List<Cobro> obtenerCobrosVehiculosPagados() {
+		// TODO Auto-generated method stub
+		return cobroDao.obtenerCobrosVehiculoPorEstado(Constantes.ESTADO_COBRO_PAGADO);
+	}
+
 
 	@Override
 	public void actualizarCobroVehiculo(Cobro cobro) {

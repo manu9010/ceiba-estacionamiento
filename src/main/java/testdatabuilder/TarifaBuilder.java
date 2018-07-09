@@ -1,5 +1,6 @@
 package testdatabuilder;
 
+import co.com.ceiba.estacionamiento.entities.TarifaEntity;
 import co.com.ceiba.estacionamiento.model.Tarifa;
 import co.com.ceiba.estacionamiento.model.TipoVehiculo;
 
@@ -51,6 +52,18 @@ public class TarifaBuilder {
 	
 	public Tarifa build() {
 		return new Tarifa(this.precio, this.temporalidadHoras, this.tipoVehiculo);
+	}
+
+
+
+
+	public static Tarifa convertirADominio(TarifaEntity tarifaEntity) {
+		Tarifa tarifa= new Tarifa();
+		tarifa.setPrecio(tarifaEntity.getPrecio());
+		tarifa.setTemporalidad(tarifaEntity.getTemporalidadHoras());
+		tarifa.setTipoVehiculo(new TipoVehiculo(tarifaEntity.getTipoVehiculo().getDescripcion()));
+		// TODO Auto-generated method stub
+		return tarifa;
 	}
 
 }
