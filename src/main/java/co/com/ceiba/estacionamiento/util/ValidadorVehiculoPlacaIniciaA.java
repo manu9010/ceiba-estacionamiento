@@ -8,12 +8,7 @@ import co.com.ceiba.estacionamiento.model.Vehiculo;
 
 public class ValidadorVehiculoPlacaIniciaA implements IValidadorVehiculo {
 
-	public boolean placaConA(String placa) {
 
-		char c = placa.toUpperCase().charAt(0);
-        return c == 'A' ? true : false;
-
-	}
 
 	@Override
 	public void validar(Vehiculo vehiculo) throws VehiculoException {

@@ -5,10 +5,13 @@ import co.com.ceiba.estacionamiento.model.Cobro;
 public interface ICobroService {
 	
 
-	Cobro cobrarParqueoPorHoras(Cobro cobro); 
-	Cobro cobrarParqueoPorDia(Cobro cobro); 
-    Cobro calularTotalTarifa(Cobro cobro);
-	
+	public Cobro cobrarParqueoPorHoras(Cobro cobro); 
+	public Cobro cobrarParqueoPorDia(Cobro cobro); 
+	public Cobro calularTotalTarifa(Cobro cobro);
+	public void registrarCobroIngresoVehiculo(Cobro cobro);
+	public Cobro obtenerCobroVehiculoPendiente(String placa);
+	public void  actualizarCobroVehiculo(Cobro cobro);
+
 	
 
 }

@@ -5,15 +5,13 @@ public class CobroTarifa {
 	private Cobro cobro;
 	private Tarifa tarifa;
 	private int cantidadTarifa;
-    private double subtotal;
-    
+
 	
 	
-	public CobroTarifa(Cobro cobro, Tarifa tarifa, int cantidadTarifa, double subtotal) {
+	public CobroTarifa(Cobro cobro, Tarifa tarifa, int cantidadTarifa) {
 		this.cobro = cobro;
 		this.tarifa = tarifa;
 		this.cantidadTarifa = cantidadTarifa;
-		this.subtotal = subtotal;
 	}
 
 
@@ -31,17 +29,6 @@ public class CobroTarifa {
 		this.tarifa = tarifa;
 	}
 
-
-
-	public double getSubtotal() {
-		return subtotal;
-	}
-
-
-
-	public void setSubtotal(double subtotal) {
-		this.subtotal = subtotal;
-	}
 
 
 

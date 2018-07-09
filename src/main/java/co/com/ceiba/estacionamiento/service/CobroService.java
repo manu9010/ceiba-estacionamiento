@@ -131,5 +131,22 @@ public class CobroService implements ICobroService {
 	
 	}
 
+	@Override
+	public void registrarCobroIngresoVehiculo(Cobro cobro) {
+		cobroDao.registrarCobroVehiculo(cobro);
+	}
+
+	@Override
+	public Cobro obtenerCobroVehiculoPendiente(String placa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void actualizarCobroVehiculo(Cobro cobro) {
+		cobroDao.actualizarCobroVehiculo(cobro);
+		
+	}
+
 
 }

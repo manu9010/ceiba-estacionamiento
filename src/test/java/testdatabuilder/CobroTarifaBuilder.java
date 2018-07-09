@@ -50,7 +50,7 @@ public class CobroTarifaBuilder {
     
 	 
 	public CobroTarifa build() {
-		return new CobroTarifa(this.cobro, this.tarifa, this.cantidadTarifa,this.subtotal);
+		return new CobroTarifa(this.cobro, this.tarifa, this.cantidadTarifa);
 	}
 	
 	

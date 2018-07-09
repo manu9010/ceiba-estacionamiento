@@ -1,5 +1,6 @@
 package testdatabuilder;
 
+import co.com.ceiba.estacionamiento.entities.VehiculoEntity;
 import co.com.ceiba.estacionamiento.model.TipoVehiculo;
 import co.com.ceiba.estacionamiento.model.Vehiculo;
 
@@ -45,6 +46,20 @@ public class VehiculoBuilder {
 	public static VehiculoBuilder unVehiculo() {
 		return new VehiculoBuilder();
 	}
+
+
+	public static Vehiculo convertirADominio(VehiculoEntity vehiculoEntity) {
+		Vehiculo vehiculo = null;
+		if(vehiculoEntity != null) {
+			vehiculo = new Vehiculo(vehiculoEntity.getPlaca(), vehiculoEntity.getCilindraje(), TipoVehiculoBuilder.convertirADominio(vehiculoEntity.getTipoVehiculo()));
+		}
+		return vehiculo;
+		
+	}
+
+
+
+
 
 
 }

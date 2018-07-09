@@ -30,7 +30,8 @@ public class CobroTest {
 	private static final double TOTAL_COBRO_VEHICULO_CARRO_DIA = 11000.0;
 	private static final double TOTAL_COBRO_VEHICULO_CARRO_HORA = 8000.0;
 	private static final double TOTAL_COBRO_VEHICULO_MOTO_DIA = 6000.0;
-	private static final String COBRO_ESTADO_PENDIENTE = "PENDIENTE";
+	private static final String PLACA_EMPIEZA_CON_A = "ABC123";
+
 	
     	@InjectMocks
     	CobroService cobroService;
@@ -249,38 +250,70 @@ public class CobroTest {
 	
 	
 	
-	@Test
-	public void capacidadValidaCobroParqueo() {
-		
-		
-		// arrange
-
-		 when(cobroDaoMock.obtenerNumerosCobrosPendientePorTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO)).thenReturn(20);
-		 when(cobroDaoMock.obtenerNumerosCobrosPendientePorTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO)).thenReturn(10);
-		
-		// act
-
-	    boolean resultado=cobroService.validarCapacidadCobroParqueo();
-		
-		// assert
-		assertEquals(false,resultado);
-	}
-	
 	
 	@Test
-	public void capacidadInValidaCobroParqueo() {
-		
+	public void cobroParqueoPorHoraVehiculoEmpiezaConA() {
+
 		// arrange
 
-		 when(cobroDaoMock.obtenerNumerosCobrosPendientePorTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO)).thenReturn(30);
-		 when(cobroDaoMock.obtenerNumerosCobrosPendientePorTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO)).thenReturn(10);
+		TipoVehiculo tipoVehiculo = new TipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
 		
+		Vehiculo vehiculo = VehiculoBuilder.unVehiculo()
+				.conPlaca(PLACA_EMPIEZA_CON_A)
+				.conCilindraje(1200)
+				.conTipoVehiculo(tipoVehiculo)
+				.build();
+		
+		Date fechaEntrada=FechaBuilder.unaFecha().
+				conAnio(2018).
+				conMes(6).
+				conDia(6).
+				conHora(12)
+				.conMinuto(0)
+				.conSegundo(0)
+				.build();
+		
+		Date fechaSalida=FechaBuilder.unaFecha().
+				conAnio(2018).
+				conMes(6).
+				conDia(6).
+				conHora(20)
+				.conMinuto(0)
+				.conSegundo(0)
+				.build();
+		
+
+		Cobro cobro = CobroBuilder.unCobro()
+				.conVehiculo(vehiculo)
+				.conEstado(Constantes.ESTADO_COBRO_PENDIENTE)
+				 .conFechaEntrada(fechaEntrada)
+				 .conFechaSalida(fechaSalida)
+				.build();
+		
+	
+
+		   Tarifa tarifaHoraCarro=TarifaBuilder.unaTarifa()
+				   .conPrecio(1000).
+				   conTemporalidadHoras(Constantes.TEMPORALIDAD_HORAS_TARIFA_HORA)
+				   .conTipoVehiculo(tipoVehiculo).build();
+		
+		
+		   
+		   when(tarifaDaoMock.obtenerTarifaPorTemporalidadHoras(Constantes.TEMPORALIDAD_HORAS_TARIFA_HORA,
+					Constantes.TIPO_VEHICULO_CARRO)).thenReturn(tarifaHoraCarro);
+
+
 		// act
 
-	    boolean resultado=cobroService.validarCapacidadCobroParqueo();
-		
+	     cobro=cobroService.cobrarParqueoPorHoras(cobro);
+
 		// assert
-		assertEquals(false,resultado);
+		assertEquals(TOTAL_COBRO_VEHICULO_CARRO_HORA, cobro.getTotal(),0);
+
 	}
+	
+
+	
+
 	
 }
