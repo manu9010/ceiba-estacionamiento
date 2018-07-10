@@ -5,6 +5,13 @@ public class TipoVehiculo {
 	private String descripcion;
 	
 	
+	
+	
+	
+
+	public TipoVehiculo() {
+		super();
+	}
 
 	public TipoVehiculo(String descripcion){
 		this.descripcion = descripcion;
